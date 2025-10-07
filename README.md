@@ -1,82 +1,99 @@
+---
+
 # Time-Table
-College Timetable Scheduler — A Python project that generates and manages class timetables for courses, faculty, and student groups. Includes both admin scheduling logic and student timetable viewer.
-📅 College Timetable Scheduler
 
-A Python project that automates the generation and visualization of college timetables.
-It handles course scheduling, faculty availability, and student group constraints to create a conflict-free timetable.
-Additionally, it provides a student viewer module, so students can directly check their personalized schedule.
+**College Timetable Scheduler** — A Python project to generate and manage class timetables for courses, faculty, and student groups. Includes both an admin scheduler and a student timetable viewer. 📅
 
-✨ Features
+This project automates the creation and visualization of college timetables. It handles course scheduling, faculty availability, and student group constraints to produce conflict-free timetables. Students can also view their personalized schedule using the student viewer module.
 
-🏫 Admin Scheduler
+---
 
-Generates a timetable based on days, slots, rooms, faculty, and courses.
+## ✨ Features
 
-Ensures no faculty or room is double-booked.
+### 🏫 Admin Scheduler
 
-Supports flexible slot durations (e.g., 30 mins, 1 hr, 1.5 hrs).
+* Generates a timetable based on days, slots, rooms, faculties, and courses.
+* Ensures no faculty or room is double-booked.
+* Supports flexible slot durations (e.g., 30 mins, 1 hr, 1.5 hrs).
+* Stores data in constraint matrices for easy manipulation and visualization.
 
-Stores data in constraint matrices for easy manipulation.
+### 👩‍🎓 Student Viewer
 
-👩‍🎓 Student Viewer
+* Students can query their batch timetable easily.
+* Provides clean tabular output using pandas.
+* Can visualize daily and weekly schedules.
 
-Students can query their batch timetable.
+### 🎨 Unique Approach
 
-Easy visualization of daily and weekly schedule.
+* Scheduling is conceptualized like a **checkerboard layering problem**:
+  Each `day × time slot × room` is a cell.
+  Faculty, course, and student availability act as colored overlays.
+* Conflicts are detected when overlays collide, ensuring conflict-free timetables.
+* This analogy helped design intuitive constraint matrices for the scheduler.
 
-Uses pandas for clean tabular output.
+---
 
-🎨 Unique Approach
+## 🛠️ Tech Stack
 
-We conceptualized scheduling like a checkerboard layering problem:
+* **Python 3.12+**
+* **NumPy** → matrix-based timetable representation
+* **Pandas** → student timetable viewer
+* **Matplotlib** → optional, for visualizations
 
-Each day × time slot × room is a cell.
+---
 
-Faculty, course, and student availability act as colored overlays.
+## 📂 Project Structure
 
-Overlaps are detected when shades conflict → ensures conflict-free timetabling.
-
-This analogy helped us design the constraint matrices intuitively.
-
-🛠️ Tech Stack
-
-Python 3.12+
-
-NumPy → matrix-based timetable representation
-
-Pandas → student timetable viewing
-
-Matplotlib (optional, for future visualization)
-
-📂 Project Structure
-Tsubaki/
+```
+Time-Table/
 │
 ├── Time_table.py        # Core scheduler logic (admin view)
 ├── Student_viewer.py    # Student timetable viewer
 ├── README.md            # Project documentation
 └── .gitignore           # Ignore unnecessary files
+```
 
-🚀 Getting Started
-1️⃣ Clone the Repository
+---
+
+## 🚀 Getting Started
+
+1️⃣ **Clone the repository**
+
+```bash
 git clone https://github.com/DivyaS09122006/Time-Table.git
 cd Time-Table
+```
 
-2️⃣ Install Dependencies
+2️⃣ **Install dependencies**
+
+```bash
 pip install numpy pandas
+```
 
-3️⃣ Run Scheduler
+3️⃣ **Run the scheduler**
+
+```bash
 python Time_table.py
+```
 
-4️⃣ Run Student Viewer
+4️⃣ **Run the student viewer**
+
+```bash
 python Student_viewer.py
+```
 
-🧪 Example
+---
 
-For Batch A, the timetable output may look like:
+## 🧪 Example Output
 
-Day	09:00-10:00	10:30-11:30	14:00-15:00
-Monday	Ethics & Environment	—	Design Analysis
-Tuesday	Software Design	Computer Networks	Differential Eqns
-Wednesday	Design Analysis	Computer Networks (Tut)	Elective
+**Batch A Timetable Sample**
 
-(Sample data based on your provided timetable image)
+| Day       | 09:00-10:00           | 10:30-11:30             | 14:00-15:00            |
+| --------- | --------------------- | ----------------------- | ---------------------- |
+| Monday    | Ethics & Environment  | Design Analysis         | —                      |
+| Tuesday   | Software Design Tools | Computer Networks       | Differential Equations |
+| Wednesday | Design Analysis       | Computer Networks (Tut) | Elective               |
+
+> (Sample data based on provided timetable image)
+
+---
