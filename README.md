@@ -1,5 +1,4 @@
 ---
-
 # Time-Table
 
 **College Timetable Scheduler** — A Python project to generate and manage class timetables for courses, faculty, and student groups. Includes both an admin scheduler and a student timetable viewer. 📅
