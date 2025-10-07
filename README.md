@@ -41,18 +41,7 @@ This project automates the creation and visualization of college timetables. It 
 
 ---
 
-## 📂 Project Structure
 
-```
-Time-Table/
-│
-├── Time_table.py        # Core scheduler logic (admin view)
-├── Student_viewer.py    # Student timetable viewer
-├── README.md            # Project documentation
-└── .gitignore           # Ignore unnecessary files
-```
-
----
 
 ## 🚀 Getting Started
 
